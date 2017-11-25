@@ -2,7 +2,7 @@ package rafaton_com.example.rafaton.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rafaton_com.example.rafaton.api.EventDao;
+import rafaton_com.example.rafaton.dao.EventDao;
 import rafaton_com.example.rafaton.dao.UserDao;
 import rafaton_com.example.rafaton.domain.Event;
 import rafaton_com.example.rafaton.domain.EventDto;
@@ -40,6 +40,12 @@ public class UserServiceImpl implements UserService {
         eventDao.insert(event);
         return event;
     }
+
+    @Override
+    public Iterable<Event> loadUserEvents(Long userId) {
+        return eventDao.findByUserId(userId);
+    }
+
     public User checkEmailAndPassword(String email, String password) {
         return userDao.findByPasswordAndEmail(password, email);
     }

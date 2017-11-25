@@ -19,10 +19,13 @@ public class UserApi {
     }
 
     @RequestMapping(value="/event/saveEvent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Event saveEvent(@RequestBody EventDto eventDto)
-            //,Long customerId)
-    {
-        return userService.saveEvent(eventDto, Long.decode("23424234"));
+    public Event saveEvent(@RequestBody EventDto eventDto ,Long userId) {
+        return userService.saveEvent(eventDto, userId);
+    }
+
+    @RequestMapping(value="/user/loadUserEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Event> loadUserEvents(Long userId){
+        return userService.loadUserEvents(userId);
     }
     @RequestMapping(value="/user/findById", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody User findById(Long id){

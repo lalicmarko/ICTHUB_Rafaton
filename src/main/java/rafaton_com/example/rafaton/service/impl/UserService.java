@@ -7,6 +7,7 @@ import rafaton_com.example.rafaton.domain.User;
 public interface UserService {
     public Iterable<User> findAll();
     public Event saveEvent(EventDto eventDto, Long userId);
+    public Iterable<Event> loadUserEvents(Long userId);
     public User findById(Long id);
     public User checkEmailAndPassword(String email, String password);
     public User checkUsernameAndPassword(String username, String password);
