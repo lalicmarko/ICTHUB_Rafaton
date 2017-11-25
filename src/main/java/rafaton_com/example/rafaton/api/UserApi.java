@@ -17,9 +17,12 @@ public class UserApi {
     public @ResponseBody Iterable<User> findAll(){
         return userService.findAll();
     }
+
     @RequestMapping(value="/event/saveEvent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Event saveEvent(@RequestBody EventDto eventDto, Long customerId){
-        return userService.saveEvent(eventDto, customerId);
+    public Event saveEvent(@RequestBody EventDto eventDto)
+            //,Long customerId)
+    {
+        return userService.saveEvent(eventDto, Long.decode("23424234"));
     }
     @RequestMapping(value="/user/findById", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody User findById(Long id){

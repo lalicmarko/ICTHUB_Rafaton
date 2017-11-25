@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document(collection = "events_db")
+@Document(collection = "event")
 @JsonIgnoreProperties
 public class Event {
     @Id
@@ -17,7 +17,7 @@ public class Event {
     private String url;
     private String info;
     private String date;
-//    private String[] images;
+    private String[] images;
     private Long userId;
 
     public void setName(String name) {
@@ -44,9 +44,9 @@ public class Event {
         this.date = date;
     }
 
-//    public void setImages(String[] images) {
-//        this.images = images;
-//    }
+    public void setImages(String[] images) {
+        this.images = images;
+    }
 
     public String getId() {
 
@@ -84,9 +84,9 @@ public class Event {
         return date;
     }
 
-//    public String[] getImages() {
-//        return images;
-//    }
+    public String[] getImages() {
+        return images;
+    }
 
     @Override
     public String toString() {
