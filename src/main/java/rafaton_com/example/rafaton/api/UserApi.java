@@ -31,8 +31,6 @@ public class UserApi {
     public @ResponseBody User findById(Long id){
         return userService.findById(id);
     }
-
-
     @RequestMapping(value="/user/login", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
         public  @ResponseBody User login(String username, String email, String password){
             if (username == null){
