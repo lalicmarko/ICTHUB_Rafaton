@@ -57,6 +57,10 @@ public class Event {
         this.userId = userId;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Long getUserId() {
         return userId;
     }

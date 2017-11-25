@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import rafaton_com.example.rafaton.domain.Event;
 import rafaton_com.example.rafaton.domain.EventDto;
+import rafaton_com.example.rafaton.domain.EventUser;
 import rafaton_com.example.rafaton.domain.User;
 import rafaton_com.example.rafaton.service.impl.UserServiceImpl;
 
@@ -19,8 +20,8 @@ public class UserApi {
     }
 //comit
     @RequestMapping(value="/event/saveEvent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Event saveEvent(@RequestBody EventDto eventDto) {
-        return userService.saveEvent(eventDto);
+    public EventUser saveEvent(@RequestBody EventUser eventUser) {
+        return userService.saveEvent(eventUser);
     }
 
     @RequestMapping(value="/user/loadUserEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -6,6 +6,7 @@ import rafaton_com.example.rafaton.dao.EventDao;
 import rafaton_com.example.rafaton.dao.UserDao;
 import rafaton_com.example.rafaton.domain.Event;
 import rafaton_com.example.rafaton.domain.EventDto;
+import rafaton_com.example.rafaton.domain.EventUser;
 import rafaton_com.example.rafaton.domain.User;
 
 @Service
@@ -27,18 +28,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Event saveEvent(EventDto eventDto) {
+    public EventUser saveEvent(EventUser eventUser) {
         Event event = new Event();
-        event.setDate(eventDto.getDate());
-        event.setInfo(eventDto.getInfo());
-        event.setLocale(eventDto.getLocale());
-        event.setName(eventDto.getName());
-        event.setType(eventDto.getType());
-        event.setUrl(eventDto.getUrl());
-        event.setImages(eventDto.getImages());
-        event.setUserId(eventDto.getUserId());
+        Event eventFrom = eventUser.getEvent();
+        event.setId(eventFrom.getId());
+        event.setDate(eventFrom.getDate());
+        event.setInfo(eventFrom.getInfo());
+        event.setLocale(eventFrom.getLocale());
+        event.setName(eventFrom.getName());
+        event.setType(eventFrom.getType());
+        event.setUrl(eventFrom.getUrl());
+        event.setImages(eventFrom.getImages());
+        event.setUserId(eventUser.getUserId());
         eventDao.insert(event);
-        return event;
+        return eventUser;
     }
 
     @Override
