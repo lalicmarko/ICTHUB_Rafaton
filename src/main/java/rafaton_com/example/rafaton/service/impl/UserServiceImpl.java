@@ -35,9 +35,9 @@ public class UserServiceImpl implements UserService {
         event.setName(eventDto.getName());
         event.setType(eventDto.getType());
         event.setUrl(eventDto.getUrl());
-        event.setImages(eventDto.getImages());
+//        event.setImages(eventDto.getImages());
         event.setUserId(userId);
-        eventDao.save(event);
+        eventDao.insert(event);
         return event;
     }
     public User checkEmailAndPassword(String email, String password) {

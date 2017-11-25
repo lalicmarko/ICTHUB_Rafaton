@@ -7,7 +7,7 @@ public class EventDto {
     private String url;
     private String info;
     private String date;
-    private String[] images;
+//    private String[] images;
 
     public String getName() {
         return name;
@@ -57,13 +57,13 @@ public class EventDto {
         this.date = date;
     }
 
-    public String[] getImages() {
-        return images;
-    }
-
-    public void setImages(String[] images) {
-        this.images = images;
-    }
+//    public String[] getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String[] images) {
+//        this.images = images;
+//    }
 
     @Override
     public String toString() {
