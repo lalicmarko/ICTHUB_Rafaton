@@ -10,3 +10,11 @@ public class RafatonApplication {
 		SpringApplication.run(RafatonApplication.class, args);
 	}
 }
+
+
+
+
+
+//spring.data.mongodb.database=events_db
+//		spring.data.mongodb.host=localhost
+//		spring.data.mongodb.port=27017
