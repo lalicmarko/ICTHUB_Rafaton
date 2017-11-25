@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface UserDao extends PagingAndSortingRepository<User, Long>{
 
-    List<User> findById(@Param("id") Long id);
-    List<User> findByPasswordAndEmail(@Param("password") String password, @Param("email") String email);
+    User findById(@Param("id") Long id);
+
+    User findByPasswordAndEmail(@Param("password") String password, @Param("email") String email);
+
+    User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
 }

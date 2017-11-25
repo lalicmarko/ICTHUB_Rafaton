@@ -17,17 +17,27 @@ public class UserApi {
     public @ResponseBody Iterable<User> findAll(){
         return userService.findAll();
     }
-
     @RequestMapping(value="/event/saveEvent", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Event saveEvent(@RequestBody EventDto eventDto, Long customerId){
         return userService.saveEvent(eventDto, customerId);
     }
+    @RequestMapping(value="/user/findById", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User findById(Long id){
+        return userService.findById(id);
+    }
 
 
-
-
-
-
-
+    @RequestMapping(value="/user/login", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+        public  @ResponseBody User login(String username, String email, String password){
+            if (username == null){
+                return userService.checkEmailAndPassword(email, password);
+            }
+            else if (email == null){
+                return userService.checkUsernameAndPassword(username, password);
+            }
+            else{
+                return null;
+            }
+    }
 
 }

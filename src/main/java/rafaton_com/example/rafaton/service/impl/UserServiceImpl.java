@@ -16,10 +16,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private EventDao eventDao;
 
+    @Override
     public Iterable<User> findAll(){
         return userDao.findAll();
     }
-    public Iterable<User> findById(Long id){
+    @Override
+    public User findById(Long id){
+
         return userDao.findById(id);
     }
 
@@ -36,5 +39,13 @@ public class UserServiceImpl implements UserService {
         event.setUserId(userId);
         eventDao.save(event);
         return event;
+    }
+    public User checkEmailAndPassword(String email, String password) {
+        return userDao.findByPasswordAndEmail(password, email);
+    }
+
+    @Override
+    public User checkUsernameAndPassword(String username, String password) {
+        return userDao.findByUsernameAndPassword(username, password);
     }
 }
