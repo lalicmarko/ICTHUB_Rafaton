@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Event saveEvent(EventDto eventDto, Long userId) {
+    public Event saveEvent(EventDto eventDto) {
         Event event = new Event();
         event.setDate(eventDto.getDate());
         event.setInfo(eventDto.getInfo());
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         event.setType(eventDto.getType());
         event.setUrl(eventDto.getUrl());
         event.setImages(eventDto.getImages());
-        event.setUserId(userId);
+        event.setUserId(eventDto.getUserId());
         eventDao.insert(event);
         return event;
     }

@@ -8,6 +8,7 @@ public class EventDto {
     private String info;
     private String date;
     private String[] images;
+    private Long userId;
 
     public String getName() {
         return name;
@@ -59,6 +60,14 @@ public class EventDto {
 
     public String[] getImages() {
         return images;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getUserId() {
+        return userId;
     }
 
     public void setImages(String[] images) {
